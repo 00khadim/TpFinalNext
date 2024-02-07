@@ -6,7 +6,7 @@ function page() {
   return (
     <div>
         <Nav/>
-        <h1>Homwxmlfkjdmflkjsdqlmksjfdmlkj</h1>
+        <h1>Home</h1>
     </div>
   )
 }
