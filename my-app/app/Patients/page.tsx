@@ -11,8 +11,10 @@ function page() {
   const [date, setDate] = useState("")
   const initialPatients = [
     { nom: "Cisse", prenom: "Khadim", date: "07/02/2024" },
-    { nom: "Smith", prenom: "Alice", date: "08/02/2024" },
-    // Ajoutez d'autres données de patients si nécessaire
+    { nom: "Abate", prenom: "Alice", date: "08/02/2024" },
+    { nom: "Rossi", prenom: "Valentino", date: "08/02/2024" },
+
+    
   ];
   
   const [tabPatient, setTabPatient] = useState<Array<{ nom: string, prenom: string, date: string }>>(initialPatients);
@@ -43,10 +45,10 @@ function page() {
   return (
     <div>
       <Nav />
-      <h1 className='p-15'>Appointments</h1>
-      <div className='bg-[#ecf7f5] p-[30px] m-[20px]'>
-        <label >Ajouter un patient</label>
-        <div className='flex justify-between w-auto'>
+   
+      <div className='bg-[#ecf7f5] pr-[30px] pl-[30px] pb-[30px] pt-[20px] m-[20px]'>
+        <label className='font-bold'>Ajouter un patient</label>
+        <div className='flex justify-between w-auto pt-3'>
 
           <input type="text"
             value={nom}
@@ -78,15 +80,20 @@ function page() {
   {tabPatient.map((patient, index) => (
     <li key={index} className="border border-gray-200 rounded p-4 flex justify-between items-center">
       <div>
-        <p><span className="font-bold">Prénom :</span> {patient.prenom}</p>
+        <p><span className="font-bold">Prénom :</span> {patient.prenom} {patient.nom}</p>
         <p><span className="font-bold">Date rendez-vous : </span> {patient.date}</p>
       </div>
+      <button
+        // onClick={() => deletePatient(patient)}
+        className="text-white bg-black-700 hover:bg-black-800 focus:ring-4font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-black-800" 
+      > Edit</button>
       <button
         onClick={() => deletePatient(patient)}
         className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50"
       >
         Supprimer
       </button>
+     
     </li>
   ))}
 </ul>
